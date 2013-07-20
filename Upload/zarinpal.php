@@ -11,7 +11,7 @@
 	$amount = $_POST['amount']; //Amount will be based on Toman
 	$custom = $_POST['custom'];
 	$callBackUrl = $_POST['url'] . '?custom=' . $custom;
-	$client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', array('encoding'=>'UTF-8'));
+	$client = new SoapClient('https://de.zarinpal.com/pg/services/WebGate/wsdl', array('encoding'=>'UTF-8'));
 	$res = $client->PaymentRequest(
 	array(
 					'MerchantID' 	=> $merchant ,
