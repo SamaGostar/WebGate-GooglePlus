@@ -14,12 +14,12 @@
 	$client = new SoapClient('https://de.zarinpal.com/pg/services/WebGate/wsdl', array('encoding'=>'UTF-8'));
 	$res = $client->PaymentRequest(
 	array(
-					'MerchantID' 	=> $merchant ,
+					'MerchantID' 		=> $merchant ,
 					'Amount' 		=> $amount ,
-					'Description' 	=> $item_name ,
+					'Description' 		=> $item_name ,
 					'Email' 		=> '' ,
 					'Mobile' 		=> '' ,
-					'CallbackURL' 	=> $callBackUrl
+					'CallbackURL' 		=> $callBackUrl
 					)
 	
  );
@@ -30,6 +30,8 @@
 	{
 	$query = "INSERT INTO checked VALUES ('', '$users', '$res->Authority', '$item_number','$item_name','$merchant','$amount')";
 	mysql_query($query);
+	}else{
+		echo'ERR: '.$res->Status;
 	}
 	mysql_close();
   
