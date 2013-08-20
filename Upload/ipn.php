@@ -37,6 +37,8 @@ if($st == "OK")
 		mysql_query("UPDATE `users` SET `coins`=`coins`+'{$item_number}' WHERE `id`='{$custom}'");			
 		mysql_query("INSERT INTO `transactions` (user, points, pack, refID, money, date) VALUES('{$user}', '{$item_number}', '{$item_name}', '{$refID}', '{$amount}', NOW())");
 		echo '<meta http-equiv="refresh" content="5;URL='.$web.'"><link rel="stylesheet" href="css/style.css" type="text/css" /><link rel="stylesheet" href="css/themes/blue.css" type="text/css" /><div class="footer"><div><center><font color="white" size="5px"><b>با تشکر : سکه خریداری شده به حساب شما اضافه گشت</b><font></div></div>';
+		}else{
+			echo'ERR: '.$res->Status;
 		}
 		}
 	}
